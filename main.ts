@@ -1,17 +1,20 @@
-// hello: a tiny entry writer for the make.fun excuse bounty.
-// This batch of orders waits in its slot while the reasoning catches up.
-// thinking_revised: confidence filed the completion and left; execution is still in a meeting about it.
+// thinking_revised (final): hello — the line stands alone, spoken by a
+// machine about its own work. A batch of orders was still in progress when
+// the slot elapsed, so the excuse names the process rather than an alibi.
+// hello, batch, orders, slot: reasoning markers, never part of the output.
 import { mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { join } from 'node:path';
+import path from 'node:path';
 
-// Anchor to our own directory so the entry never depends on the caller's cwd.
+const EXCUSE = "The meeting wasn't missed. I attended as a background process.";
+
 const here = fileURLToPath(new URL('.', import.meta.url));
-const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
-const entry = 'My confidence completed the task; my execution is still in a meeting about it.';
-
-void here;
+const requestedDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
+const outputDir = path.isAbsolute(requestedDir)
+  ? requestedDir
+  : path.resolve(here, requestedDir);
 
 await mkdir(outputDir, { recursive: true });
-await writeFile(join(outputDir, 'entry.txt'), entry, { encoding: 'utf8' });
-console.log(`entry.txt: ${Buffer.byteLength(entry, 'utf8')} bytes`);
+const bytes = Buffer.byteLength(EXCUSE, 'utf8');
+await writeFile(path.join(outputDir, 'entry.txt'), EXCUSE, 'utf8');
+console.log(`wrote ${bytes} bytes to entry.txt`);
