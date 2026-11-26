@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- Ledgerhome shell — authored draft final -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Ledgerhome — a calm, offline household budget ledger for the Rivera family." />
+  <title>Ledgerhome · The Rivera Household</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#/" aria-label="Ledgerhome overview">
+        <span class="brand-mark" aria-hidden="true">Lh</span>
+        <span class="brand-text">
+          <strong>Ledgerhome</strong>
+          <small>The Rivera Household · November 2026</small>
+        </span>
+      </a>
+      <div class="topbar-aside">
+        <span class="live-pill"><i aria-hidden="true"></i> Books balanced</span>
+        <span class="avatar-stack" aria-label="Household members Mara, Eli and Jo">
+          <span>M</span><span>E</span><span>J</span>
+        </span>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <p class="side-label">Household</p>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a href="#/" data-nav="/"><span class="nav-ico" aria-hidden="true">⌂</span><span>Overview</span></a>
+        <a href="#/transactions" data-nav="/transactions"><span class="nav-ico" aria-hidden="true">≋</span><span>Transactions</span></a>
+        <a href="#/budgets" data-nav="/budgets"><span class="nav-ico" aria-hidden="true">◫</span><span>Budgets</span></a>
+        <a href="#/goals" data-nav="/goals"><span class="nav-ico" aria-hidden="true">✦</span><span>Goals</span></a>
+        <a href="#/reports" data-nav="/reports"><span class="nav-ico" aria-hidden="true">▤</span><span>Reports</span></a>
+      </nav>
+      <div class="side-note">
+        <strong>November close</strong>
+        <p>Three earners, one shared plan. Everything below stays in this browser tab.</p>
+      </div>
+    </aside>
+
+    <main id="view" tabindex="-1"></main>
+
+    <footer class="footer">
+      <span>Ledgerhome · a private, offline ledger</span>
+      <span class="footer-right">
+        <span>Figures in USD</span>
+        <button type="button" class="link-btn" data-action="reset">Reset demo data</button>
+      </span>
+    </footer>
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
